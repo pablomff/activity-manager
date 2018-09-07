@@ -1,1 +1,2 @@
 # activity-manager
+# Lightning Component
