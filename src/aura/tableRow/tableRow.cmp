@@ -1,0 +1,28 @@
+<aura:component description="tableRow">
+
+    <aura:attribute name="item"    type="Object" />
+    <aura:attribute name="itemType"    type="String" description="Possible values: task, event, user"/>
+
+    <c:utils/>
+
+    <tr id="{!v.item.Id}">
+        <!-- Task row -->
+        <aura:if isTrue="{!v.itemType == 'task'}">
+
+        </aura:if>
+        <!-- Meeting row -->
+        <aura:if isTrue="{!v.itemType == 'event'}">
+            <td>{!v.item.ActivityDate}</td>
+            <td><a href="{!c.navigateToRecord}">{!v.item.Subject}</a></td>
+            <td>{!v.item.Location}</td>
+            <!--{!v.item.ActivityDate} {!v.item.ActivityDateTime} {!v.item.CreatedById} {!v.item.CreatedDate} {!v.item.DurationInMinutes} {!v.item.EndDateTime} {!v.item.Id} {!v.item.IsAllDayEvent} {!v.item.​​IsArchived} {!v.item.​​IsChild} {!v.item.​​IsDeleted} {!v.item.​​IsGroupEvent} {!v.item.​​IsPrivate} {!v.item.​​IsRecurrence} {!v.item.​​IsReminderSet} {!v.item.​​LastModifiedById} {!v.item.​​LastModifiedDate} {!v.item.​​OwnerId} {!v.item.​​ShowAs} {!v.item.​​StartDateTime} {!v.item.​​Subject} {!v.item.​​SystemModstamp}-->
+        </aura:if>
+        <!-- User row -->
+        <aura:if isTrue="{!v.itemType == 'user'}">
+
+        </aura:if>
+        
+    </tr>
+
+
+</aura:component>

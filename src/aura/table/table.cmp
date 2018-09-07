@@ -1,0 +1,22 @@
+<aura:component description="table">
+
+    <aura:attribute name="items" type="Object" default=""/>
+    <aura:attribute name="itemsType" type="String" default=""/>
+
+    <table class="{!if(v.itemsType == 'event', 'slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked', '')}">
+
+        <c:tableHead headType="event"/>
+
+        <tbody aura:id="tableBody">
+            <aura:iteration items="{!v.items}" var="i" indexVar="idx">
+                <c:tableRow item="{!i}" itemType="{!v.itemsType}"/>
+            </aura:iteration>
+        </tbody>
+    </table>
+
+
+
+
+
+
+</aura:component>
