@@ -2,21 +2,18 @@
 
     <aura:attribute name="headType" type="String" default=""/>
 
-    <!-- Task row -->
-    <aura:if isTrue="{!v.headType == 'task'}">
+    <thead>
+        <tr class="slds-line-height_reset">
 
-    </aura:if>
+            <!-- Task row -->
+            <aura:if isTrue="{!v.headType == 'task'}">
 
-    <!-- Meeting row -->
-    <aura:if isTrue="{!v.headType == 'event'}">
-        <thead>
-            <tr class="slds-line-height_reset">
                 <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Close Date" scope="col">
                     <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
                         <span class="slds-assistive-text">Sort by: Date</span>
                         <span class="slds-truncate" title="Close Date">Date</span>
                         <div class="slds-icon_container">
-                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon slds-icon_small"/>
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
                         </div>
                     </a>
                     <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
@@ -27,28 +24,12 @@
                         </span>
                     </div>
                 </th>
-                <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Meeting subject" scope="col">
-                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                        <span class="slds-assistive-text">Sort by: Subject</span>
-                        <span class="slds-truncate" title="Account Name">Subject</span>
-                        <div class="slds-icon_container">
-                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon slds-icon_small"/>
-                        </div>
-                    </a>
-                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
-                    <div class="slds-resizable">
-                        <input type="range" min="20" max="1000" aria-label="Account Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-9" tabindex="-1" />
-                        <span class="slds-resizable__handle">
-                            <span class="slds-resizable__divider"></span>
-                        </span>
-                    </div>
-                </th>
                 <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Meeting location" scope="col">
                     <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
-                        <span class="slds-assistive-text">Sort by: Location</span>
-                        <span class="slds-truncate" title="Stage">Location</span>
+                        <span class="slds-assistive-text">Sort by: Subject</span>
+                        <span class="slds-truncate" title="Stage">Subject</span>
                         <div class="slds-icon_container">
-                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon slds-icon_small"/>
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
                         </div>
                     </a>
                     <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
@@ -64,14 +45,74 @@
                         <span class="slds-assistive-text">Actions</span>
                     </div>
                 </th>
-            </tr>
-        </thead>
-    </aura:if>
 
-    <!-- User row -->
-    <aura:if isTrue="{!v.headType == 'user'}">
+            </aura:if>
 
-    </aura:if>
+            <!-- Meeting row -->
+            <aura:if isTrue="{!v.headType == 'event'}">
 
+                <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Close Date" scope="col">
+                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                        <span class="slds-assistive-text">Sort by: Date</span>
+                        <span class="slds-truncate" title="Close Date">Date</span>
+                        <div class="slds-icon_container">
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
+                        </div>
+                    </a>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
+                    <div class="slds-resizable">
+                        <input type="range" min="20" max="1000" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-10" tabindex="-1" />
+                        <span class="slds-resizable__handle">
+                            <span class="slds-resizable__divider"></span>
+                        </span>
+                    </div>
+                </th>
+                <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Meeting subject" scope="col">
+                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                        <span class="slds-assistive-text">Sort by: Subject</span>
+                        <span class="slds-truncate" title="Account Name">Subject</span>
+                        <div class="slds-icon_container">
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
+                        </div>
+                    </a>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
+                    <div class="slds-resizable">
+                        <input type="range" min="20" max="1000" aria-label="Account Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-9" tabindex="-1" />
+                        <span class="slds-resizable__handle">
+                            <span class="slds-resizable__divider"></span>
+                        </span>
+                    </div>
+                </th>
+                <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Meeting location" scope="col">
+                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                        <span class="slds-assistive-text">Sort by: Location</span>
+                        <span class="slds-truncate" title="Stage">Location</span>
+                        <div class="slds-icon_container">
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
+                        </div>
+                    </a>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
+                    <div class="slds-resizable">
+                        <input type="range" min="20" max="1000" aria-label="Stage column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-11" tabindex="-1" />
+                        <span class="slds-resizable__handle">
+                            <span class="slds-resizable__divider"></span>
+                        </span>
+                    </div>
+                </th>
+                <th scope="col" style="width: 3.25rem;">
+                    <div class="slds-th__action">
+                        <span class="slds-assistive-text">Actions</span>
+                    </div>
+                </th>
+
+            </aura:if>
+
+            <!-- User row -->
+            <aura:if isTrue="{!v.headType == 'user'}">
+
+            </aura:if>
+
+        </tr>
+    </thead>
 
 </aura:component>

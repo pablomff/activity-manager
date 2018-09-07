@@ -7,6 +7,8 @@
 
     <!-- Attributes -->
     <aura:attribute name="tasks" type="Object" default="" description="Tasks assigned to the current user"/>
+    <aura:attribute name="showTasks" type="Boolean" default="false" description="Tasks assigned to the current user"/>
+
     <!-- Handlers -->
 
 
@@ -39,7 +41,17 @@
 
         <div class="slds-card__body slds-card__body_inner">
 
-            TABLE HERE
+            <aura:if isTrue="{!v.showTasks}">
+
+                <c:table items="{!v.tasks}" itemsType="task"/>
+
+                <aura:set attribute="else">
+
+                    <c:tableEmpty elementType="tasks"/>
+
+                </aura:set>
+
+            </aura:if>
 
         </div>
 
