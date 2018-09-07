@@ -1,0 +1,11 @@
+<aura:component description="basicDetail" extensible="true">
+
+    <aura:attribute name="record" type="Object" description="The record being displayed."/>
+    <!-- set by sub components -->
+    <aura:attribute name="recordId" type="Id" description="The Id of the record" required="true" />
+    <aura:attribute name="objectType" type="String" description="The object type of the record"/>
+
+    <!-- contents of the sub component -->
+    {!v.body}
+
+</aura:component>

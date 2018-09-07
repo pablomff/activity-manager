@@ -5,5 +5,5 @@
     },
     deleteRecord : function (id) {
 
-    },
+    }
 })

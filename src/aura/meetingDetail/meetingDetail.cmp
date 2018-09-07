@@ -1,0 +1,10 @@
+<aura:component description="meetingDetail" extends="c:basicDetail">
+
+    <aura:attribute name="record" type="Object" description="Meeting object"/>
+
+    <td>{!v.record.ActivityDate} - {!v.recordId}</td>
+    <td><a href="javascript:void(0);" onclick="{!c.navigateToRecord}">{!v.record.Subject}</a></td>
+    <td>{!v.record.Location}</td>
+
+
+</aura:component>

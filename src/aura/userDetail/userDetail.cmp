@@ -1,0 +1,8 @@
+<aura:component description="userDetail" extends="c:basicDetail">
+
+    <aura:attribute name="record" type="Object" description="Meeting object"/>
+
+    <td>{!v.record.Name}</td>
+    <td><a href="{!c.navigateToRecord}">{!v.record.Name}</a></td>
+
+</aura:component>
