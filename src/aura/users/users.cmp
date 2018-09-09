@@ -1,4 +1,4 @@
-<aura:component description="users" controller="EventsController" implements="flexipage:availableForAllPageTypes">
+<aura:component description="users" controller="UserRolesGroupsController" implements="flexipage:availableForAllPageTypes">
 
     <!-- Notes:
             * flexipage:availableForAllPageTypes - to make it visible for Lightning App Builder for example
@@ -12,8 +12,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <!-- Registers -->
-
-
+    <aura:registerEvent name="openModalEvent" type="c:openModal"/>
 
 
     <article class="slds-card slds-card_boundary">
@@ -34,7 +33,7 @@
                     </h2>
                 </div>
                 <div class="slds-no-flex">
-                    <button class="slds-button slds-button_neutral">New</button>
+                    <button class="slds-button slds-button_neutral" onclick="{! c.openModal }">New</button>
                 </div>
             </header>
         </div>

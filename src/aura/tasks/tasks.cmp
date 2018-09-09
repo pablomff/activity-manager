@@ -10,11 +10,11 @@
     <aura:attribute name="showTasks" type="Boolean" default="false" description="Tasks assigned to the current user"/>
 
     <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
 
     <!-- Registers -->
-
-
+    <aura:registerEvent name="openModalEvent" type="c:openModal"/>
 
 
     <article class="slds-card slds-card_boundary">
@@ -34,7 +34,7 @@
                     </h2>
                 </div>
                 <div class="slds-no-flex">
-                    <button class="slds-button slds-button_neutral">New</button>
+                    <button class="slds-button slds-button_neutral" onclick="{! c.openModal }">New</button>
                 </div>
             </header>
         </div>

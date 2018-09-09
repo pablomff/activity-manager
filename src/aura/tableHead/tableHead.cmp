@@ -11,14 +11,14 @@
                 <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Close Date" scope="col">
                     <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
                         <span class="slds-assistive-text">Sort by: Date</span>
-                        <span class="slds-truncate" title="Close Date">Date</span>
+                        <span class="slds-truncate" title="Activity Date">Activity Date</span>
                         <div class="slds-icon_container">
-                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Date" class="slds-icon" size="x-small"/>
                         </div>
                     </a>
                     <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
                     <div class="slds-resizable">
-                        <input type="range" min="20" max="1000" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-10" tabindex="-1" />
+                        <input type="range" min="20" max="1000" aria-label="Activity Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-10" tabindex="-1" />
                         <span class="slds-resizable__handle">
                             <span class="slds-resizable__divider"></span>
                         </span>
@@ -27,9 +27,25 @@
                 <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Meeting location" scope="col">
                     <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
                         <span class="slds-assistive-text">Sort by: Subject</span>
-                        <span class="slds-truncate" title="Stage">Subject</span>
+                        <span class="slds-truncate" title="Subject">Subject</span>
                         <div class="slds-icon_container">
-                            <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Subject" class="slds-icon" size="x-small"/>
+                        </div>
+                    </a>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
+                    <div class="slds-resizable">
+                        <input type="range" min="20" max="1000" aria-label="Stage column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-11" tabindex="-1" />
+                        <span class="slds-resizable__handle">
+                            <span class="slds-resizable__divider"></span>
+                        </span>
+                    </div>
+                </th>
+                <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Meeting location" scope="col">
+                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                        <span class="slds-assistive-text">Sort by: Status</span>
+                        <span class="slds-truncate" title="Status">Status</span>
+                        <div class="slds-icon_container">
+                            <lightning:icon iconName="utility:arrowdown" alternativeText="Status" class="slds-icon" size="x-small"/>
                         </div>
                     </a>
                     <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
@@ -54,7 +70,7 @@
                 <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" aria-label="Close Date" scope="col">
                     <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
                         <span class="slds-assistive-text">Sort by: Date</span>
-                        <span class="slds-truncate" title="Close Date">Date</span>
+                        <span class="slds-truncate" title="Date">Date</span>
                         <div class="slds-icon_container">
                             <lightning:icon iconName="utility:arrowdown" alternativeText="Users" class="slds-icon" size="x-small"/>
                         </div>

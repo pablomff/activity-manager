@@ -1,5 +1,5 @@
 ({
-    "doInit" : function(component) {
+    doInit : function(component) {
         // create a one-time use instance of the serverEcho action
         // in the server-side controller
         var action = component.get("c.getMeetings");
@@ -46,5 +46,10 @@
         // other server-side action calls.
         // $A.enqueueAction adds the server-side action to the queue.
         $A.enqueueAction(action);
-    }
+    },
+    
+    openModal : function(component) {
+		var openModalEvent = $A.get("e.c:openModal");
+		openModalEvent.setParams({ "open": true }).fire();		
+	}
 })

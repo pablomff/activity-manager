@@ -3,9 +3,9 @@
     <aura:attribute name="items" type="Object" required="true" />
     <aura:attribute name="itemsType" type="String" required="true"/>
 
-    <table class="{!if(v.itemsType == 'event', 'slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked', '')}">
+    <table class="{!if(v.itemsType == 'event' || v.itemsType == 'task', 'slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked', '')}">
 
-        <c:tableHead headType="event"/>
+        <c:tableHead headType="{!v.itemsType}"/>
 
         <tbody aura:id="tableBody">
             <aura:iteration items="{!v.items}" var="i" indexVar="idx">

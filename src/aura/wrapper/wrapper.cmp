@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+	
+	<c:meetings />
+	<c:tasks />
+	<c:users />
+	<c:modal />
+	
+	
+</aura:component>
