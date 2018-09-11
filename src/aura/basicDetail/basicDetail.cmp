@@ -5,6 +5,10 @@
     <aura:attribute name="recordId" type="Id" description="The Id of the record" required="true" />
     <aura:attribute name="objectType" type="String" description="The object type of the record"/>
 
+    <!-- Registers -->
+    <aura:registerEvent name="openModalEvent" type="c:openModal"/>
+
+
     <!-- contents of the sub component -->
     {!v.body}
 

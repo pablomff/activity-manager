@@ -3,7 +3,7 @@
     <aura:attribute name="items" type="Object" required="true" />
     <aura:attribute name="itemsType" type="String" required="true"/>
 
-    <table class="{!if(v.itemsType == 'event' || v.itemsType == 'task', 'slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked', '')}">
+    <table class="{!if(v.itemsType == 'event' || v.itemsType == 'task', 'slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked slds-border_left slds-border_right', '')}">
 
         <c:tableHead headType="{!v.itemsType}"/>
 
@@ -12,11 +12,7 @@
                 <c:tableRow item="{!i}" itemType="{!v.itemsType}"/>
             </aura:iteration>
         </tbody>
+
     </table>
-
-
-
-
-
 
 </aura:component>

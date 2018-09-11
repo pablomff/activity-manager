@@ -1,3 +1,5 @@
 <aura:event type="APPLICATION" description="Event template">
-	<aura:attribute name="open" type="Boolean" description="Open/Close modal" />
+	<aura:attribute name="open" type="Boolean" 	description="Open/Close modal" />
+    <aura:attribute name="type" type="String" 	description="Which modal type it should render" />
+    <aura:attribute name="userId" type="String" description="User Id" />
 </aura:event>

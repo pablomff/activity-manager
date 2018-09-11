@@ -1,4 +1,4 @@
-<aura:component description="tasks" controller="TasksController" implements="flexipage:availableForAllPageTypes">
+<aura:component description="tasks" controller="TasksController">
 
     <!-- Notes:
             * flexipage:availableForAllPageTypes - to make it visible for Lightning App Builder for example
@@ -8,6 +8,9 @@
     <!-- Attributes -->
     <aura:attribute name="tasks" type="Object" default="" description="Tasks assigned to the current user"/>
     <aura:attribute name="showTasks" type="Boolean" default="false" description="Tasks assigned to the current user"/>
+
+    <aura:attribute name="showTasksForUser" type="Boolean" default="false" description="Tasks assigned to a specific user"/>
+    <aura:attribute name="userId" type="String" default="false" description="User id"/>
 
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -34,25 +37,20 @@
                     </h2>
                 </div>
                 <div class="slds-no-flex">
-                    <button class="slds-button slds-button_neutral" onclick="{! c.openModal }">New</button>
+                    <aura:if isTrue="{!not(v.showTasksForUser)}">
+                        <button class="slds-button slds-button_neutral" onclick="{! c.openModal }">New</button>
+                    </aura:if>
                 </div>
             </header>
         </div>
 
         <div class="slds-card__body slds-card__body_inner">
-
             <aura:if isTrue="{!v.showTasks}">
-
                 <c:table items="{!v.tasks}" itemsType="task"/>
-
                 <aura:set attribute="else">
-
                     <c:tableEmpty elementType="tasks"/>
-
                 </aura:set>
-
             </aura:if>
-
         </div>
 
         <footer class="slds-card__footer">

@@ -7,4 +7,15 @@
 
 public class TasksController {
 
+    @AuraEnabled
+    public static String getTasks(){
+        List<Task> tasks = TaskDAO.getTasks();
+        return TaskDAO.serializeTasks(tasks);
+    }
+
+    @AuraEnabled
+    public static String getTasksAssignedToUser(String userId){
+        List<Task> tasks = TaskDAO.getTasksByUser(userId);
+        return TaskDAO.serializeTasks(tasks);
+    }
 }

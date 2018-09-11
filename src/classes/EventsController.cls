@@ -13,4 +13,10 @@ public with sharing class EventsController {
         return EventDAO.serializeEvents(events);
     }
 
+    @AuraEnabled
+    public static String getMeetingsAssignedToUser(String userId){
+        List<Event> events = EventDAO.getEventsByUser(userId);
+        return EventDAO.serializeEvents(events);
+    }
+
 }

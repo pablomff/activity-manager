@@ -1,8 +1,17 @@
 <aura:component description="userDetail" extends="c:basicDetail">
 
-    <aura:attribute name="record" type="Object" description="Meeting object"/>
+    <aura:attribute name="record" type="Object" description="User object"/>
 
-    <td>{!v.record.Name}</td>
-    <td><a href="{!c.navigateToRecord}">{!v.record.Name}</a></td>
+    <td>
+        <aura:if isTrue="{!not(empty(v.record.FullPhotoUrl))}">
+            <img title="{!v.record.Name}" src="{!v.record.FullPhotoUrl}" alt="{!v.record.Name + 'Image'}" class="usr-detail-photo"/>
+            <aura:set attribute="else">
+                <img title="{!v.record.Name}" src="/profilephoto/005/T" alt="{!v.record.Name + 'Image'}" class="usr-detail-photo"/>
+            </aura:set>
+        </aura:if>
+    </td>
+    <td><a href="javascript:void(0);" onclick="{!c.navigateToRecord}">{!v.record.Name}</a></td>
+    <td>{!v.record.Email}</td>
+    <td><a href="javascript:void(0);" onclick="{!c.openModal}">View</a></td>
 
 </aura:component>

@@ -1,4 +1,4 @@
-<aura:component description="meetings" controller="EventsController" implements="flexipage:availableForAllPageTypes">
+<aura:component description="meetings" controller="EventsController">
 
     <!-- Notes:
             * flexipage:availableForAllPageTypes - to make it visible for Lightning App Builder for example
@@ -8,14 +8,14 @@
     <!-- Attributes -->
     <aura:attribute name="meetings" type="Object[]" description="Meetings assigned to the current user"/>
     <aura:attribute name="showMeetings" type="Boolean" default="false" description="Meetings assigned to the current user"/>
+
+    <aura:attribute name="showMeetingsForUser" type="Boolean" default="false" description="Meetings assigned to a specific user"/>
+    <aura:attribute name="userId" type="String" default="false" description="User id"/>
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <!-- Registers -->
     <aura:registerEvent name="openModalEvent" type="c:openModal"/>
-	
-
-
 
     <article class="slds-card slds-card_boundary">
         <div class="slds-card__header slds-grid">
@@ -34,26 +34,20 @@
                     </h2>
                 </div>
                 <div class="slds-no-flex">
-                    <button class="slds-button slds-button_neutral" onclick="{!c.openModal}">New</button>
+                    <aura:if isTrue="{!not(v.showMeetingsForUser)}">
+                        <button class="slds-button slds-button_neutral" onclick="{!c.openModal}">New</button>
+                    </aura:if>
                 </div>
             </header>
         </div>
 
         <div class="slds-card__body slds-card__body_inner">
             <aura:if isTrue="{!v.showMeetings}">
-
                 <c:table items="{!v.meetings}" itemsType="event"/>
-
                 <aura:set attribute="else">
-
                     <c:tableEmpty elementType="meetings"/>
-
                 </aura:set>
-
-
             </aura:if>
-
-
         </div>
 
         <footer class="slds-card__footer">

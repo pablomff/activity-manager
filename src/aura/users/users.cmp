@@ -1,4 +1,4 @@
-<aura:component description="users" controller="UserRolesGroupsController" implements="flexipage:availableForAllPageTypes">
+<aura:component description="users" controller="UserRolesGroupsController">
 
     <!-- Notes:
             * flexipage:availableForAllPageTypes - to make it visible for Lightning App Builder for example
@@ -19,7 +19,7 @@
         <div class="slds-card__header slds-grid">
             <header class="slds-media slds-media_center slds-has-flexi-truncate">
                 <div class="slds-media__figure">
-                    <span class="slds-icon_container slds-icon-standard-contact" title="Meeting">
+                    <span class="slds-icon_container slds-icon-standard-contact" title="User">
                         <lightning:icon iconName="standard:groups" alternativeText="Users" class="slds-icon slds-icon_medium"/>
                         <!-- could change iconName to: standard:omni_supervisor -->
                         <span class="slds-assistive-text">Users</span>
@@ -33,26 +33,18 @@
                     </h2>
                 </div>
                 <div class="slds-no-flex">
-                    <button class="slds-button slds-button_neutral" onclick="{! c.openModal }">New</button>
+                    <!--<button class="slds-button slds-button_neutral" onclick="{! c.openModal }">New</button>-->
                 </div>
             </header>
         </div>
 
         <div class="slds-card__body slds-card__body_inner">
             <aura:if isTrue="{!v.showUsers}">
-
                 <c:table items="{!v.users}" itemsType="user"/>
-
                 <aura:set attribute="else">
-
                     <c:tableEmpty elementType="users"/>
-
                 </aura:set>
-
-
             </aura:if>
-
-
         </div>
 
         <footer class="slds-card__footer">

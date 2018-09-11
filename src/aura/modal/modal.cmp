@@ -1,7 +1,9 @@
 <aura:component>
     
     <!-- Attributes -->
-    <aura:attribute name="isOpen" type="boolean" description="use boolean attribute for store true/false value" default="false"/>
+    <aura:attribute name="isOpen" type="boolean" description="use boolean attribute to store true/false value" default="false"/>
+    <aura:attribute name="modalType" type="String" description="use string attribute to render a specific modal layout, valid ones: event, task, user" default=""/>
+    <aura:attribute name="recordId" type="String" default="false" description="User id"/>
     
 	
     <!-- Handlers -->
@@ -11,15 +13,35 @@
     
         <aura:if isTrue="{!v.isOpen}">
              
-            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-" aria-modal="true" aria-describedby="modal-content-id" class="slds-modal slds-modal_large slds-fade-in-open">
                 <div class="slds-modal__container">
-                    <!-- ###### MODAL BOX HEADER Start ######-->
+
                     <header class="slds-modal__header">
                         <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeModal}" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
-                        <h2 id="modal-heading" class="slds-text-heading_medium slds-hyphenate">Modal heading</h2>
+                        <aura:if isTrue="{!or(v.modalType == 'event',v.modalType == 'task')}">
+                            <h2 id="modal-heading" class="slds-text-heading_medium slds-hyphenate">New {!v.modalType}</h2>
+                        </aura:if>
+                        <aura:if isTrue="{!v.modalType == 'user'}">
+                            <h2 id="modal-heading" class="slds-text-heading_medium slds-hyphenate">Assigned activities to {!v.modalType}</h2>
+                        </aura:if>
                     </header>
                     
-                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id">
+
+                        <!-- Layout for a task/event-->
+                        <aura:if isTrue="{!or(v.modalType == 'event',v.modalType == 'task')}">
+
+                            <c:searchUser/>
+
+                            Layout for New task/event
+
+                        </aura:if>
+
+                        <!-- Layout for a specific user -->
+                        <aura:if isTrue="{!v.modalType == 'user'}">
+                            <c:meetings showMeetingsForUser="true" userId="{!v.recordId}"/>
+                            <c:tasks showTasksForUser="true" userId="{!v.recordId}"/>
+                        </aura:if>
 
                     </div>
                     
@@ -27,6 +49,7 @@
                         <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{! c.closeModal }"/>
                         <lightning:button variant="brand"  	label="Save" title="Save" onclick="{! c.save }"/>
                     </footer>
+
                 </div>
             </section>
             <div class="slds-backdrop slds-backdrop_open"></div>

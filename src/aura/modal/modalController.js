@@ -2,6 +2,11 @@
    handleOpenModal: function(component, event, helper) {
       // to display modal, sets the "isOpen" attribute to "true"
       component.set("v.isOpen", $A.util.getBooleanValue(event.getParam("open")));
+      // sets modal type
+      component.set("v.modalType", event.getParam("type"));
+      // sets the user id
+      component.set("v.recordId", event.getParam("userId"));
+
    },
  
    closeModal: function(component, event, helper) {
